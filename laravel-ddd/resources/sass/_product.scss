@@ -1,0 +1,406 @@
+.product {
+    &-clever-bg {
+        background: url('/images/lp/breezer/clever_main.jpg') no-repeat top;
+        max-width: 2543px;
+        height: 640px;
+    }
+    &-unit-bg {
+        background: url('/images/lp/breezer/main.jpg') no-repeat top;
+        max-width: 2543px;
+        height: 640px;
+    }
+    &-co2-bg {
+        background: url('/images/lp/breezer/co2plus-main.jpg') no-repeat top;
+        max-width: 2543px;
+        height: 640px;
+    }
+    &-ma-bg {
+        background: url('/images/lp/breezer/ma-top.jpg') no-repeat top;
+        max-width: 2543px;
+        height: 640px;
+    }
+    &-lite-bg {
+        background: url('/images/lp/breezer/lite_bg_1.jpg') no-repeat top;
+        max-width: 2543px;
+        height: 640px;
+    }
+    &-o2-bg {
+        background: url('/images/lp/breezer/o2_top.jpg') no-repeat top;
+        max-width: 2543px;
+        height: 640px;
+    }
+    &-bg {
+        background: url('/images/lp/breezer/3s_top.jpg') no-repeat top;
+        max-width: 2543px;
+        height: 640px;
+    }
+    &-video {
+        max-height: 612px;
+        &-content {
+            & p {
+                max-width: 300px;
+                font-size: 1.125rem;
+            }
+            & img {
+                height: 110px;
+                padding: 15px 0 25px;
+            }
+        }
+    }
+    &-list {
+        font-size: 0.875rem;
+        max-width: 340px;
+    }
+    &-installation {
+        position: relative;
+        &-timer {
+            margin-top: -40px;
+            & > img {
+                height: 80px;
+            }
+        }
+        &-minutes {
+            font-size: 0.875rem;
+            color: $tion-blue;
+            padding-left: 10px;
+            padding-top: 25px;
+        }
+        &-title {
+            padding-top: 15px;
+            padding-bottom: 10px;
+            text-align: left;
+        }
+    }
+    &-ventilation {
+        &-bg {
+            background-color: rgb(224, 247, 255);
+            min-height: 600px;
+            transition: background-color .6s cubic-bezier(0.65, 0.05, 0.36, 1);
+        }
+        &-item {
+            & > img {
+                width: 80px;
+            }
+            & > p {
+                font-family: 'Roboto Condensed';
+                color: $tion-blue;
+                font-size: 1.125rem;
+            }
+        }
+    }
+    &-unique {
+        &-title {
+            margin: 20px 0 10px;
+            text-transform: uppercase;
+            font-size: 1.625rem;
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+        &-list {
+            margin: 20px 0;
+            padding-left: 0;
+            list-style-type: none;
+            & > li > span {
+                color: #333;
+            }
+            &_grey {
+                color: $light-grey;
+                &:before {
+                    content: "\2613 \a0"
+                }
+            }
+            &_blue {
+                color: $tion-blue;
+                &:before {
+                    content: "\2713 \a0";
+                }
+            }
+        }
+    }
+    &-before-ma {
+        & > img {
+            width: 90px;
+        }
+    }
+    &-ma {
+        background-color: #eaeced;
+        &-phone {
+            max-width: 230px;
+        }
+        &-description {
+            margin: 70px 0 40px;
+        }
+        &-computer {
+            max-width: 550px;
+        }
+        &-caption {
+            margin: 40px 0 70px;
+            & p {
+                font-size: 1.375rem;
+                max-width: 400px;
+                &.one {
+                    max-width: 100%;
+                }
+            }
+            &_one {
+                max-width: 100%;
+            }
+        }
+        &-note {
+            font-size: 0.75rem;
+            line-height: 1.25rem;
+        }
+        &-numbers {
+            position: relative;
+            & img {
+                height: 100px;
+                z-index: 2;
+                position: relative;
+                overflow: hidden;
+                background-color: #fff;
+            }
+            &-dash {
+                position: absolute;
+                top: 50px;
+                width: 50%;
+                left: 25%;
+                border-top-width: 1px;
+                border-top-style: dashed;
+                margin-left: 0;
+                border-color: $tion-blue;
+                z-index: 1;
+            }
+            & p {
+                max-width: 290px;
+                width: 290px;
+                font-size: 1.25rem;
+                padding-top: 10px;
+            }
+        }
+        &-needs {
+            & img {
+                max-height: 100px;
+            }
+        }
+    }
+    &-comparision {
+        max-width: 720px;
+        &.big {
+            max-width: 900px;
+        }
+        & table {
+            font-size: 1.125rem;
+            font-family: "Roboto Condensed";
+            & td {
+                height: 35px;
+                &.product-comparision-table_border {
+                    border-top: 1px solid #d1d1d1;
+                    border-bottom: 1px solid #d1d1d1;
+                    padding: 8px 0;
+                }
+                &:not(:first-child) {
+                    padding-left: 40px;
+                }
+            }
+        }
+    }
+    &-operation {
+        &-title {
+            font-weight: 400;
+            font-size: 1.125rem;
+            margin: 0 0 5px;
+            font-family: "Roboto Condensed";
+            & + p {
+                font-size: 0.875rem;
+            }
+        }
+    }
+    &-io {
+        background-color: #f2f7fa;
+        border-radius: 9px;
+        color: #00404d;
+        padding: 10px;
+        width: 350px;
+        &-image {
+            & img {
+                max-width: 152px;
+            }
+            &_switcher {
+                margin-bottom: 15px;
+                &-item {
+                    color: #00404d;
+                    font-size: 10px;
+                    border: 1px solid #9a9a9a;
+                    margin-right: -1px;
+                    width: 52px;
+                    display: inline-block;
+                    margin-right: -4px;
+                    cursor: pointer;
+                    text-align: center;
+                    padding: 2px;
+                    font-weight: 400;
+                    line-height: 1rem;
+                    &:before {
+                        content: '';
+                    }
+                    &.active {
+                        border-color: $tion-blue;
+                    }
+                    &:first-child {
+                        border-top-left-radius: 12px;
+                        border-bottom-left-radius: 12px;
+                    }
+                    &:last-child {
+                        border-top-right-radius: 12px;
+                        border-bottom-right-radius: 12px;
+                    }
+                }
+            }
+        }
+        &-list {
+            position: relative;
+            & ul {
+                list-style: none;
+                padding-left: 56px;
+            }
+            &_1, &_2, &_3 {
+                margin-bottom: 20px;
+                &:before {
+                    content: '';
+                    display: block;
+                    width: 32px;
+                    height: 32px;
+                    position: absolute;
+                    left: 80px;
+                    margin-top: -5px;
+                }
+            }
+            &_1 {
+                &:before {
+                    background: url(/images/lp/breezer/heather.svg) no-repeat center center;
+                }
+            }
+            &_2 {
+                &:before {
+                    background-image: url(/images/lp/breezer/filter_g4.png);
+                    background-size: contain;
+                }
+            }
+            &_3 {
+                &:before {
+                    background: url(/images/lp/breezer/smartphone-control.svg) no-repeat center center;
+                }
+            }
+        }
+    }
+    &-lite {
+        &-scheme_description {
+            padding: 40px 0 60px;
+            max-width: 810px;
+            font-family: 'Roboto Condensed', sans-serif;
+            margin: 0 auto;
+        }
+    }
+    &-why {
+        &-description {
+            max-width: 810px;
+            margin: 0 auto;
+        }
+    }
+    &-line {
+        background: #f2f7fa;
+    }
+    &-doknow {
+        background-color: #dcf4fa;
+        border-radius: 20px;
+        text-align: center;
+        max-width: 900px;
+        margin: 170px auto 50px;
+        padding: 30px 0;
+        position: relative;
+        &-image {
+            &_top {
+                max-width: 150px;
+                margin-top: -95px;
+            }
+            &_center {
+                max-width: 350px;
+            }
+        }
+        & p {
+            max-width: 700px;
+            font-size: 1.125rem;
+            color: #000;
+            text-align: center;
+            margin: 40px auto 50px;
+            text-align: center;
+        }
+    }
+    &-clever {
+        &-configuration {
+            &_item {
+                background-color: #eaeced;
+                padding: 40px 0;
+                & ul {
+                    font-family: "Roboto Condensed";
+                    list-style: none;
+                    font-weight: 300;
+                    color: #686868;
+                    & li:before {
+                        content: "\2022";
+                        color: $tion-blue;
+                        font-weight: 700;
+                        display: inline-block;
+                        margin-left: -1em;
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+    &-advantage {
+        & img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+h2.product {
+    font-size: 2.25rem;
+    padding: 40px 0 20px;
+    & + .subtitle {
+        text-align: center;
+        font-size: 1.1875rem;
+        //margin: 0 auto;
+        //max-width: 850px;
+        margin-bottom: 30px;
+    }
+}
+
+h3.product {
+    text-transform: none;
+}
+
+.what {
+    & img {
+        width: 80px;
+        height: 60px;
+    }
+    & > div {
+        margin-bottom: 50px;
+    }
+    &-title {
+        font-family: "Roboto Condensed";
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        line-height: 1.75rem;
+        margin-bottom: 5px;
+    }
+}
+
+.product-bg-video {
+    background-color: #f1eff1;
+    height: auto;
+    overflow: hidden;
+}
+

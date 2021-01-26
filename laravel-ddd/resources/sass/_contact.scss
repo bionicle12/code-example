@@ -1,0 +1,36 @@
+.contact {
+    &-title {
+        font-family: "Roboto Condensed";
+        font-size: 1.375rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+    &-form {
+        border: 1px solid rgba(0,0,0,.15);
+        padding: 20px 20px 0;
+        margin-top: 20px;
+    }
+    &-tabs {
+        margin-bottom: 50px;
+        & > .nav-pills .nav-link {
+            color: #333;
+            font-size: 1.375rem;
+            text-transform: uppercase;
+            font-weight: 400;
+            font-family: "Roboto Condensed";
+        }
+        & > .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+            color: $tion-blue;
+            background-color: #fff;
+        }
+        & .tab-content .nav-pills .nav-link {
+            color: #333;
+            font-sizze: 1rem;
+        }
+        & .tab-content .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+            color: $tion-blue;
+            background-color: #fff;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+
+
+.close-button {
+    width: 100%;
+    text-align: right;
+    font-size: 1.5rem;
+    color: $tion-header-color;
+}
+
+div[role="dialog"] > .btn:focus {
+    box-shadow: none;
+}

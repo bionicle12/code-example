@@ -1,0 +1,18 @@
+.nf_error {
+    background: url('/images/404.jpg') no-repeat center;
+    background-size: cover;
+    min-height: 600px;
+    div {
+        color: #fff;
+        font-family: Roboto;
+        font-weight: 600;
+        font-size: 1.5rem;
+        &:first-child {
+            padding-top: 500px;
+        }
+        & a {
+            color: #fff;
+            text-decoration: underline;
+        }
+    }
+}

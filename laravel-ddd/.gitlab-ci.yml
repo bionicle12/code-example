@@ -1,0 +1,15 @@
+stages:
+  - build
+building:
+  stage: build
+  tags:
+    - app
+  only:
+    - master
+  script:
+    - composer install
+    - cp .env.example .env
+    - docker-compose stop
+    - docker-compose build
+    - docker-compose up -d
+    - docker exec --tty gf_web /bin/bash -c "composer install && npm install && npm run dev"
