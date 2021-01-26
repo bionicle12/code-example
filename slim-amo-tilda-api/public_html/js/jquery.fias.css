@@ -1,0 +1,84 @@
+.kladr-error{
+	color:#cb3e27
+}
+#kladr_autocomplete ul{
+	position:absolute;
+	display:block;
+	margin:0;
+	padding:0;
+	border:1px solid #c4c4c4;
+	background-color:#fff;
+	z-index:9999;
+	overflow-x:hidden;
+	overflow-y:auto;
+	min-width:200px;
+	max-height:420px;
+	color:#222
+}
+#kladr_autocomplete li{
+	display:list-item;
+	list-style-type:none;
+	margin:0;
+	padding: 3px .4em 3px;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	border-top:1px solid transparent;
+	border-bottom:1px solid transparent;
+}
+#kladr_autocomplete li:hover{
+	background-color:#f2f2f2;
+	cursor:pointer;
+	border-top-color:#d2d2d2;
+	border-bottom-color:#d2d2d2;
+}
+#kladr_autocomplete li.active{
+	background-color:#e9e9e9
+}
+#kladr_autocomplete a{
+	text-decoration:none
+}
+#kladr_autocomplete strong{
+	font-weight:600
+}
+#kladr_autocomplete a, #kladr_autocomplete strong, #kladr_autocomplete small{
+	font-family:'Circe', Arial, sans-serif !important;
+	font-size:1.1em
+}
+#kladr_autocomplete small{
+	color:#aaa;
+	font-size:1em
+}
+#kladr_autocomplete .spinner{
+	position:absolute;
+	display:block;
+	margin:0;
+	padding:0;
+	width:16px;
+	height:16px;
+	background:url("/js/images/spinner.png") center center no-repeat;
+	z-index:9999
+}
+.ui-widget{
+	font-family:'Circe', Arial, sans-serif !important;
+}
+.ui-menu{
+	padding:0;
+	border:1px solid #d2d2d2;
+}
+.ui-menu .ui-menu-item a{
+	padding: 3px .4em 3px;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus{
+	background:#f2f2f2;
+	cursor:pointer;
+}
+.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br,
+.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl,
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr,
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl{
+	border-radius:0;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus{
+	border-color:#d2d2d2;
+}

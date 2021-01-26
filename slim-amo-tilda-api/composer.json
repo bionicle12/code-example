@@ -1,0 +1,31 @@
+{
+  "name": "bionicle12/slim-amo-tilda-api",
+  "type": "framework",
+  "description": "MVC for the PHP microframework Slim",
+  "keywords": [
+    "microframework",
+    "rest",
+    "router",
+    "mvc"
+  ],
+  "homepage": "https://github.com/bionicle12/slim-amo-tilda-api",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "bionicle12"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "slim/slim": "2.*",
+    "slim/views": "0.1.*",
+    "twig/twig": "1.*",
+    "ext-json": "*",
+    "ext-pdo": "*"
+  },
+  "autoload": {
+    "psr-0": {
+      "": ""
+    }
+  }
+}

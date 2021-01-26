@@ -1,0 +1,22 @@
+.footer {
+    &-content {
+        border-top: 1px solid $light-grey;
+        &-social {
+            font-size: 1.5rem;
+            & a {
+                color: $light-grey;
+            }
+        }
+    }
+    &-menu a {
+        color: $tion-header-color;
+        font-size: 0.875rem;
+    }
+}
+
+.copyright {
+    color: $light-grey;
+    font-size: 0.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid $light-grey;
+}
