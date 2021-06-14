@@ -1,48 +1,50 @@
 <?php
 
-namespace DDD\Page\Model;
+namespace Domain\Page\Model;
 
 use App\Models\User;
-use DDD\Page\Entity\Page;
-use DDD\Page\Model\PageContentModel;
+use Domain\Page\Entity\Page;
+use Domain\Page\Model\PageContentModel;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use DDD\ModelInterface;
-use Illuminate\Support\Facades\App;
+use Domain\ModelInterface;
 
+/**
+ * Class PageModel
+ *
+ * @package Domain\Page\Model
+ */
 class PageModel extends Model implements ModelInterface
 {
     use HasFactory;
 
+    /**
+     * @var string
+     */
     protected $table = "pages";
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
         return $this->belongsTo('User');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function content()
     {
-        return $this->hasMany('DDD\Page\Model\PageContentModel', 'page_id');
+        return $this->hasMany('Domain\Page\Model\PageContentModel', 'page_id');
     }
 
-    public function activeContentByLang()
-    {
-        //select * from page_contents left join locales where status=1 and locales.code=en
-
-        return $this->content()
-            ->join('locales', 'page_contents.locale_id', '=', 'locales.id')
-            ->where('page_contents.status', PageContentModel::STATUS_PUBLISH)
-            ->where('locales.code', App::getLocale())->first();
-    }
-
+    /**
+     * @return \Domain\Page\Entity\Page
+     */
     public function toDomain(): Page
     {
-        $content = $this->activeContentByLang();
-
-        if ($content) {
-            $content = $content->toDomain();
-        }
+        $content = $this->content->keyBy('locale_id')->map(function ($item) { return $item->toDomain(); });
 
         return new Page(
             $this->category,
@@ -52,5 +54,15 @@ class PageModel extends Model implements ModelInterface
             $this->id,
             $this->created_at
         );
+    }
+
+    /**
+     *
+     */
+    public static function booted()
+    {
+        static::deleted(function ($page) {
+            $page->content()->delete();
+        });
     }
 }

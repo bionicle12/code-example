@@ -1,9 +1,9 @@
 <?php
 
-namespace DDD\HMenu\Entity;
+namespace Domain\HMenu\Entity;
 
-use DDD\HMenu\Model\HMenuModel;
-use DDD\Locale\Model\LocaleModel;
+use Domain\HMenu\Model\HMenuModel;
+use Domain\Locale\Model\LocaleModel;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
 use JsonSerializable;
@@ -26,12 +26,17 @@ class HMenu implements Arrayable, Jsonable, JsonSerializable
     private $status;
 
     /**
-     * @var int
+     * @var LocaleModel
      */
-    private $parent_id;
+    private $locale;
 
     /**
-     * @var array of HMenu
+     * @var HMenuModel
+     */
+    private $parent;
+
+    /**
+     * @var array of HMenuModel
      */
     private $children;
 
@@ -50,12 +55,23 @@ class HMenu implements Arrayable, Jsonable, JsonSerializable
      */
     private $id;
 
-    public function __construct(string $title, string $url = null, bool $status = null, $parent_id = null, $children = [], int $sortOrder = null, string $class = null, int $id = null)
+    public function __construct(
+        string $title,
+        string $url = null,
+        bool $status = null,
+        LocaleModel $locale,
+        HMenuModel $parent = null,
+        $children = [],
+        int $sortOrder = null,
+        string $class = null,
+        int $id = 0
+    )
     {
         $this->title = $title;
         $this->url = $url;
         $this->status = $status;
-        $this->parent_id = $parent_id;
+        $this->locale = $locale;
+        $this->parent = $parent;
         $this->children = $children;
         $this->sortOrder = $sortOrder;
         $this->class = $class;
@@ -77,9 +93,14 @@ class HMenu implements Arrayable, Jsonable, JsonSerializable
         return $this->status;
     }
 
-    public function getParentId()
+    public function getLocale()
     {
-        return $this->parent_id;
+        return $this->locale;
+    }
+
+    public function getParent()
+    {
+        return $this->parent;
     }
 
     public function getChildren()
@@ -101,6 +122,44 @@ class HMenu implements Arrayable, Jsonable, JsonSerializable
     {
         return $this->id;
     }
+
+//    /**
+//     * @return false|string
+//     */
+//    public function __toString(): string
+//    {
+//        $parent = !empty($this->parent) ? [
+//            'title' => $this->parent->title
+//        ] : '';
+//        $children = [];
+//        if (!empty($this->children)) {
+//            foreach ($this->children as $child) {
+//                $children[] = [
+//                    'id' => $child->id,
+//                    'title' => $child->title
+//                ];
+//            }
+//        }
+//        $data = [
+//            'id' => $this->id,
+//            'title' => $this->title,
+//            'url' => $this->url,
+//            'status' => $this->status,
+//            'locale' => [
+//                'id' => $this->locale->id,
+//                'title' => $this->locale->title,
+//                'code' => $this->locale->code
+//            ],
+//            'parent' => $parent,
+//            'children' => $children,
+//            'sort_order' => $this->sortOrder,
+//            'class' => $this->class,
+//            'TEST' => 'sdfsdf'
+//        ];
+//        $json = json_encode($data);
+//
+//        return $json;
+//    }
 
     public function __toString(): string
     {
@@ -125,6 +184,9 @@ class HMenu implements Arrayable, Jsonable, JsonSerializable
 
     public function toArray()
     {
+        $parent = !empty($this->parent) ? [
+            'title' => $this->parent->title
+        ] : '';
         $children = [];
         if (!empty($this->children)) {
             foreach ($this->children as $child) {
@@ -144,17 +206,12 @@ class HMenu implements Arrayable, Jsonable, JsonSerializable
                 'title' => $this->locale->title,
                 'code' => $this->locale->code
             ],
-            'parent_id' => $this->parent_id,
+            'parent' => $parent,
             'children' => $children,
             'sort_order' => $this->sortOrder,
             'class' => $this->class
         ];
 
         return $data;
-    }
-
-    public function addChild(HMenu $item)
-    {
-        $this->children[$item->getId()] = $item;
     }
 }

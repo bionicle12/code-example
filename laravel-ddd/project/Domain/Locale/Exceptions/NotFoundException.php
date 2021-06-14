@@ -1,6 +1,6 @@
 <?php
 
-namespace Domain\HMenu\Exceptions;
+namespace Domain\Locale\Exceptions;
 
 use Exception;
 

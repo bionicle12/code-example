@@ -13,10 +13,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
-Route::view('/react', 'react');
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => false,
+]);
 
-Route::get('lang/{lang}', [App\Http\Controllers\LocalizationController::class, 'index']);
+//Route::view('/', 'welcome');
 
-Route::get('{slug}', [App\Http\Controllers\PageController::class, 'index']);
+Route::middleware('auth')
+    ->group(function () {
+        Route::view('/', 'admin.app');
+
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+            ->name('home');
+
+        //Locale
+        Route::get('/locales', [App\Http\Controllers\Locale\LocaleController::class, 'index'])
+            ->name('locales.index');
+        Route::get('/locales/create', [App\Http\Controllers\Locale\LocaleController::class, 'create'])
+            ->name('locales.create');
+        Route::post('/locales', [App\Http\Controllers\Locale\LocaleController::class, 'store'])
+            ->name('locales.store');
+
+        // Page
+        Route::get('/pages', [App\Http\Controllers\Page\PageController::class, 'index'])
+            ->name('pages.index');
+        Route::post('/pages', [App\Http\Controllers\Page\PageController::class, 'store'])
+            ->name('pages.store');
+        Route::get('/pages/create', [App\Http\Controllers\Page\PageController::class, 'create'])
+            ->name('pages.create');
+        Route::get('/pages/{page}/edit', [App\Http\Controllers\Page\PageController::class, 'edit'])
+            ->name('pages.edit');
+        Route::delete('/pages/{page}', [App\Http\Controllers\Page\PageController::class, 'destroy'])
+            ->name('pages.destroy');
+        Route::patch('/pages/{page}', [App\Http\Controllers\Page\PageController::class, 'update'])
+            ->name('pages.update');
+    });
+
+Route::get('/test', [App\Http\Controllers\Test\TestController::class, 'index']);

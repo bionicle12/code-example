@@ -1,12 +1,11 @@
 <?php
 
-namespace DDD\Locale\Service;
+namespace Domain\Locale\Service;
+
+use Domain\Locale\Entity\Locale;
+use Illuminate\Database\Eloquent\Collection;
 
 interface LocaleServiceInterface
 {
-    public function getAll();
-
-    public function findDefault();
-
-    public function findByCode($code);
+    public function findAll();
 }

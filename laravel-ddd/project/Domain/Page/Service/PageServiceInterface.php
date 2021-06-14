@@ -1,8 +1,19 @@
 <?php
 
-namespace DDD\Page\Service;
+namespace Domain\Page\Service;
 
+use Domain\Page\Entity\Page;
+use Illuminate\Support\Collection;
+
+/**
+ * Interface PageServiceInterface
+ *
+ * @package Domain\Page\Service
+ */
 interface PageServiceInterface
 {
-    public function findBySlug(string $slug);
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function findAll(): Collection;
 }
