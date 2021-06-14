@@ -1,27 +1,42 @@
 <?php
 
-namespace DDD\Page\Entity;
+namespace Domain\Page\Entity;
 
-use DDD\Page\Exceptions\InvalidArgumentException;
+use Domain\Page\Exceptions\InvalidArgumentException;
 
+/**
+ * Class PageTitle
+ *
+ * @package Domain\Page\Entity
+ */
 final class PageTitle
 {
+    /**
+     * @var string
+     */
     private $title;
 
+    /**
+     * PageTitle constructor.
+     *
+     * @param string $title
+     */
     public function __construct(string $title)
     {
-        if (empty($title)) {
-            throw new InvalidArgumentException("Title should not be empty");
-        }
-
         $this->title = $title;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return $this->getTitle();
